@@ -12,6 +12,7 @@ struct YummoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            RecipeView()
         }
     }
 }
