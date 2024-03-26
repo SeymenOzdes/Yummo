@@ -20,122 +20,150 @@ struct AddingRecipeView: View {
     @State private var instructionTexts: Array<String> = []
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
-    
     var body: some View {
-        Form {
-            // title section
-            Section {
-                TextField("Name", text: $recipeName)
-            } header: {
-                Text("Title")
-                    .textCase(.none)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.black)
+        NavigationStack {
+            Form {
+                // title section
+                titleSection
+                // number of people section
+                servingSection
+                // prep time
+                preperationTimeSection
+                // cooking time
+                cookingTimeSection
+                // Description section
+                descriptionSection
+                // Ingredients Section
+                ingredientSection
+                // Instruction Section
+                instructionSection
             }
-            // number of people section
-            Section {
-                Picker("Number of People", selection: $selectedPerCount) {
-                    ForEach(1..<11, id: \.self) { i in
-                        Text("\(i)")
-                    }
+            .toolbar {
+                Button("Save") {
+                    // saving process
                 }
-            } header: {
-                Text("Serving")
-                    .textCase(.none)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.black)
             }
-            // prep time
-            Section {
-                Picker("choose preperation time", selection: $selectedPrepTime) {
-                    ForEach(times, id: \.self) { i in
-                        Text("\(i)")
-                    }
+        }
+    }
+    
+    var titleSection: some View {
+        Section {
+            TextField("Name", text: $recipeName)
+        } header: {
+            Text("Title")
+                .textCase(.none)
+                .font(.title2)
+                .fontWeight(.black)
+                .foregroundStyle(.black)
+        }
+    }
+    var servingSection: some View {
+        Section {
+            Picker("Number of People", selection: $selectedPerCount) {
+                ForEach(1..<11, id: \.self) { i in
+                    Text("\(i)")
                 }
-            } header: {
-                Text("Prep Time")
-                    .textCase(.none)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.black)
             }
-            // cooking time
-            Section {
-                Picker("choose cooking time", selection: $selectedCookTime) {
-                    ForEach(times, id: \.self) { i in
-                        Text("\(i)")
-                    }
+        } header: {
+            Text("Serving")
+                .textCase(.none)
+                .font(.title2)
+                .fontWeight(.black)
+                .foregroundStyle(.black)
+        }
+    }
+    var preperationTimeSection: some View {
+        Section {
+            Picker("choose preperation time", selection: $selectedPrepTime) {
+                ForEach(times, id: \.self) { i in
+                    Text("\(i)")
                 }
-            } header: {
-                Text("Cooking time")
-                    .textCase(.none)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.black)
             }
-            // Description section
-            Section {
-                TextEditor(text: $description)
-                    .frame(height: 120)
-            } header: {
-                Text("Description")
-                    .textCase(.none)
-                    .font(.title2)
-                    .fontWeight(.black)
-                    .foregroundStyle(.black)
-            }
-            // Ingredients Section
-            Section {
-                ForEach(ingredients.indices, id: \.self) { index in
-                    TextField("ingredient", text: $ingredients[index])
+        } header: {
+            Text("Prep Time")
+                .textCase(.none)
+                .font(.title2)
+                .fontWeight(.black)
+                .foregroundStyle(.black)
+        }
+    }
+    var cookingTimeSection: some View {
+        Section {
+            Picker("choose cooking time", selection: $selectedCookTime) {
+                ForEach(times, id: \.self) { i in
+                    Text("\(i)")
                 }
-            } header: {
+            }
+        } header: {
+            Text("Cooking time")
+                .textCase(.none)
+                .font(.title2)
+                .fontWeight(.black)
+                .foregroundStyle(.black)
+        }
+    }
+    var descriptionSection: some View {
+        Section {
+            TextEditor(text: $description)
+                .frame(height: 120)
+        } header: {
+            Text("Description")
+                .textCase(.none)
+                .font(.title2)
+                .fontWeight(.black)
+                .foregroundStyle(.black)
+        }
+    }
+    var ingredientSection: some View {
+        Section {
+            ForEach(ingredients.indices, id: \.self) { index in
+                TextField("ingredient", text: $ingredients[index])
+            }
+        } header: {
+            HStack() {
+                Text("Ingredients")
+                    .textCase(.none)
+                    .font(.title2)
+                    .fontWeight(.black)
+                    .foregroundStyle(.black)
+                
+                Spacer()
+                
+                Button {
+                    let newIngredient = ""
+                    ingredients.append(newIngredient)
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+    }
+    var instructionSection: some View {
+        Section {
+            ForEach(instructions.indices, id: \.self) { i in
                 HStack() {
-                    Text("Ingredients")
-                        .textCase(.none)
-                        .font(.title2)
-                        .fontWeight(.black)
-                        .foregroundStyle(.black)
-                    
-                    Spacer()
-                    
-                    Button {
-                        let newIngredient = ""
-                        ingredients.append(newIngredient)
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+                    Text("\(instructionNums[i])")
+                    TextEditor(text: $instructionTexts[i])
                 }
             }
-            // Instruction Section
-            Section {
-                ForEach(instructions.indices, id: \.self) { i in
-                    HStack() {
-                        Text("\(instructionNums[i])")
-                        TextEditor(text: $instructionTexts[i])
-                    }
-                }
-            } header: {
-                HStack() {
-                    Text("Instruction")
-                        .textCase(.none)
-                        .font(.title2)
-                        .fontWeight(.black)
-                        .foregroundStyle(.black)
-                    
-                    Spacer()
-                    
-                    Button {
-                        let newInstruction = "" // Burada yeni bir talimat oluştur
-                        instructions.append(newInstruction)
-                        instructionTexts.append(newInstruction)
-                        instructionNums.append(instructionNum)
-                        instructionNum += 1
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+        } header: {
+            HStack() {
+                Text("Instruction")
+                    .textCase(.none)
+                    .font(.title2)
+                    .fontWeight(.black)
+                    .foregroundStyle(.black)
+                
+                Spacer()
+                
+                Button {
+                    let newInstruction = "" // Burada yeni bir talimat oluştur
+                    instructions.append(newInstruction)
+                    instructionTexts.append(newInstruction)
+                    instructionNums.append(instructionNum)
+                    instructionNum += 1
+                } label: {
+                    Image(systemName: "plus")
                 }
             }
         }

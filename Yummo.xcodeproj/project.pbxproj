@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2E02E0F72BA9ECC300EDB8E5 /* YummoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */; };
-		2E02E0F92BA9ECC300EDB8E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F82BA9ECC300EDB8E5 /* ContentView.swift */; };
+		2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */; };
 		2E02E0FB2BA9ECC300EDB8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */; };
 		2E02E0FE2BA9ECC300EDB8E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */; };
+		2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */; };
 		2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */; };
 		2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */; };
 /* End PBXBuildFile section */
@@ -18,9 +19,10 @@
 /* Begin PBXFileReference section */
 		2E02E0F32BA9ECC300EDB8E5 /* Yummo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummoApp.swift; sourceTree = "<group>"; };
-		2E02E0F82BA9ECC300EDB8E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingRecipeView.swift; sourceTree = "<group>"; };
 		2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +59,6 @@
 			children = (
 				2E597AB62BAEBB9000C8AEB5 /* View */,
 				2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */,
-				2E02E0F82BA9ECC300EDB8E5 /* ContentView.swift */,
 				2E597AB92BAED5BA00C8AEB5 /* Components */,
 				2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */,
 				2E02E0FC2BA9ECC300EDB8E5 /* Preview Content */,
@@ -76,7 +77,9 @@
 		2E597AB62BAEBB9000C8AEB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */,
 				2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */,
+				2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,7 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */,
-				2E02E0F92BA9ECC300EDB8E5 /* ContentView.swift in Sources */,
+				2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */,
+				2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */,
 				2E02E0F72BA9ECC300EDB8E5 /* YummoApp.swift in Sources */,
 				2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */,
 			);
