@@ -13,10 +13,11 @@ struct AddingRecipeView: View {
     @State private var selectedPerCount = 1
     @State private var selectedPrepTime = 0
     @State private var selectedCookTime = 5
-    @State private var selectedIngredientCount = 1
-    @State private var selectedIngredient = ""
-    @State private var ingredientCount = 1
+    @State private var instructionNum = 1
+    @State private var instructionNums: Array<Int> = []
     @State private var ingredients: Array<String> = []
+    @State private var instructions: Array<String> = []
+    @State private var instructionTexts: Array<String> = []
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
     
@@ -85,7 +86,6 @@ struct AddingRecipeView: View {
                     .fontWeight(.black)
                     .foregroundStyle(.black)
             }
-            
             // Ingredients Section
             Section {
                 ForEach(ingredients.indices, id: \.self) { index in
@@ -102,7 +102,37 @@ struct AddingRecipeView: View {
                     Spacer()
                     
                     Button {
-                        ingredients.append(selectedIngredient)
+                        let newIngredient = ""
+                        ingredients.append(newIngredient)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            // Instruction Section
+            Section {
+                ForEach(instructions.indices, id: \.self) { i in
+                    HStack() {
+                        Text("\(instructionNums[i])")
+                        TextEditor(text: $instructionTexts[i])
+                    }
+                }
+            } header: {
+                HStack() {
+                    Text("Instruction")
+                        .textCase(.none)
+                        .font(.title2)
+                        .fontWeight(.black)
+                        .foregroundStyle(.black)
+                    
+                    Spacer()
+                    
+                    Button {
+                        let newInstruction = "" // Burada yeni bir talimat oluştur
+                        instructions.append(newInstruction)
+                        instructionTexts.append(newInstruction)
+                        instructionNums.append(instructionNum)
+                        instructionNum += 1
                     } label: {
                         Image(systemName: "plus")
                     }
