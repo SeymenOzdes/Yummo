@@ -4,48 +4,47 @@
 //
 //  Created by Seymen Özdeş on 24.03.2024.
 //
-
 import SwiftUI
 
 struct AddingRecipeView: View {
+
     @State private var recipeName = ""
     @State private var description = ""
     @State private var selectedPerCount = 1
     @State private var selectedPrepTime = 0
-    @State private var selectedCookTime = 5
+    @State private var selectedCookTime = 20
     @State private var instructionNum = 1
     @State private var instructionNums: Array<Int> = []
     @State private var ingredients: Array<String> = []
-    @State private var instructions: Array<String> = []
+    @State private var instructions: Array<String> = [] // dictionary olmalı
     @State private var instructionTexts: Array<String> = []
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
     var body: some View {
         NavigationStack {
             Form {
-                // title section
                 titleSection
-                // number of people section
+                
                 servingSection
-                // prep time
+                
                 preperationTimeSection
-                // cooking time
+                
                 cookingTimeSection
-                // Description section
+                
                 descriptionSection
-                // Ingredients Section
+                
                 ingredientSection
-                // Instruction Section
+                
                 instructionSection
             }
             .toolbar {
                 Button("Save") {
-                    // saving process
+                    // saving process -> galiba core data burda eklenicek.
                 }
             }
+            .navigationTitle("New Recipe")
         }
     }
-    
     var titleSection: some View {
         Section {
             TextField("Name", text: $recipeName)
@@ -53,7 +52,7 @@ struct AddingRecipeView: View {
             Text("Title")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
         }
     }
@@ -68,7 +67,7 @@ struct AddingRecipeView: View {
             Text("Serving")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
         }
     }
@@ -83,7 +82,7 @@ struct AddingRecipeView: View {
             Text("Prep Time")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
         }
     }
@@ -98,7 +97,7 @@ struct AddingRecipeView: View {
             Text("Cooking time")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
         }
     }
@@ -110,7 +109,7 @@ struct AddingRecipeView: View {
             Text("Description")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundStyle(.black)
         }
     }
@@ -124,7 +123,7 @@ struct AddingRecipeView: View {
                 Text("Ingredients")
                     .textCase(.none)
                     .font(.title2)
-                    .fontWeight(.black)
+                    .fontWeight(.heavy)
                     .foregroundStyle(.black)
                 
                 Spacer()
@@ -148,10 +147,10 @@ struct AddingRecipeView: View {
             }
         } header: {
             HStack() {
-                Text("Instruction")
+                Text("Instructions")
                     .textCase(.none)
                     .font(.title2)
-                    .fontWeight(.black)
+                    .fontWeight(.heavy)
                     .foregroundStyle(.black)
                 
                 Spacer()

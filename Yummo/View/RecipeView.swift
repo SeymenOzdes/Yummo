@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct RecipeView: View {
+    @EnvironmentObject var viewModel: RecipeViewModel
+    var recipe: RecipeCard
     
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 24) {
-                Text("Croissant")
+                Text(recipe.recipeName)
                     .font(.largeTitle).bold()
                 
                 // recipe info's field + 1.total time should be added
@@ -40,7 +42,7 @@ struct RecipeView: View {
             }
             .padding()
         }
-
+        
         Spacer()
         
     }
@@ -54,7 +56,6 @@ struct RecipeView: View {
             }
         }
     }
-    
     var descriptionSection: some View {
         VStack(alignment: .leading) {
             Text("Description")
@@ -62,7 +63,7 @@ struct RecipeView: View {
             
             Divider()
             
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et dolor sapien. Curabitur quis tellus tellus.")
+            Text(recipe.description)
                 .fontWeight(.thin)
                 .fontDesign(.monospaced)
         }
@@ -76,17 +77,8 @@ struct RecipeView: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 12) {
-                HStack(spacing: 4) {
-                    Text("1 cup") // amount
-                    Text("Water") // food's name
-                }
-                HStack(spacing: 4) {
-                    Text("4")
-                    Text("Carrot")
-                }
-                HStack(spacing: 4) {
-                    Text("2")
-                    Text("Steak")
+                ForEach(recipe.ingredients, id: \.self) { ingredient in
+                    Text(ingredient)
                 }
             }
             .padding()
@@ -101,15 +93,8 @@ struct RecipeView: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    Text("1") // step nums
-                        .foregroundStyle(.secondary)
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-                }
-                HStack {
-                    Text("2") // step nums
-                        .foregroundStyle(.secondary)
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+                ForEach(recipe.instructions, id: \.self) {instruction in
+                    Text(instruction)
                 }
             }
         }
@@ -118,5 +103,5 @@ struct RecipeView: View {
 }
 
 #Preview {
-    RecipeView()
+    RecipeView(recipe: RecipeCard.all[0])
 }

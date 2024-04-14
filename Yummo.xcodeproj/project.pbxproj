@@ -11,6 +11,8 @@
 		2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */; };
 		2E02E0FB2BA9ECC300EDB8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */; };
 		2E02E0FE2BA9ECC300EDB8E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */; };
+		2E0C28272BB31E67003526D1 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */; };
+		2E0C282B2BB3236F003526D1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C282A2BB3236F003526D1 /* Recipe.swift */; };
 		2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */; };
 		2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */; };
 		2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */; };
@@ -22,6 +24,8 @@
 		2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		2E0C282A2BB3236F003526D1 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingRecipeView.swift; sourceTree = "<group>"; };
 		2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
@@ -57,9 +61,10 @@
 		2E02E0F52BA9ECC300EDB8E5 /* Yummo */ = {
 			isa = PBXGroup;
 			children = (
-				2E597AB62BAEBB9000C8AEB5 /* View */,
 				2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */,
-				2E597AB92BAED5BA00C8AEB5 /* Components */,
+				2E597AB62BAEBB9000C8AEB5 /* View */,
+				2E0C28252BB31C33003526D1 /* ViewModel */,
+				2E7BB4482BB2F55300132C5B /* Model */,
 				2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */,
 				2E02E0FC2BA9ECC300EDB8E5 /* Preview Content */,
 			);
@@ -74,9 +79,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2E0C28252BB31C33003526D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2E597AB62BAEBB9000C8AEB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E597AB92BAED5BA00C8AEB5 /* Components */,
 				2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */,
 				2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */,
 				2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */,
@@ -90,6 +104,14 @@
 				2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		2E7BB4482BB2F55300132C5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E0C282A2BB3236F003526D1 /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +186,9 @@
 			files = (
 				2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */,
 				2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */,
+				2E0C282B2BB3236F003526D1 /* Recipe.swift in Sources */,
 				2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */,
+				2E0C28272BB31E67003526D1 /* RecipeViewModel.swift in Sources */,
 				2E02E0F72BA9ECC300EDB8E5 /* YummoApp.swift in Sources */,
 				2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */,
 			);

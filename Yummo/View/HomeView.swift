@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
+  @EnvironmentObject var viewModel: RecipeViewModel
+    
     var body: some View {
         NavigationStack {
-            NavigationLink {
-                AddingRecipeView()
-            } label: {
-                Image(systemName: "plus")
+            List(viewModel.recipes) { recipe in
+                Text(recipe.recipeName)
+                    .navigationTitle("Yummo")
             }
-            
-            Spacer()
-            
+            .toolbar {
+                NavigationLink("+", destination: {
+                    AddingRecipeView()
+                })
+                .foregroundStyle(.primary)
+                .font(.title)
+            }
         }
-        .navigationTitle("Yummo")
     }
 }
     
 #Preview {
     HomeView()
+        .environmentObject(RecipeViewModel())
 }

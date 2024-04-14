@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct YummoApp: App {
+    @StateObject var recipeViewModel = RecipeViewModel()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(recipeViewModel)
         }
     }
 }
