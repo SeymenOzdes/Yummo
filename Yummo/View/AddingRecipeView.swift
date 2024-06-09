@@ -7,10 +7,11 @@
 import SwiftUI
 
 struct AddingRecipeView: View {
-
+    @EnvironmentObject var viewModel: RecipeViewModel
+    
     @State private var recipeName = ""
     @State private var description = ""
-    @State private var selectedPerCount = 1
+    @State private var servings = 1
     @State private var selectedPrepTime = 0
     @State private var selectedCookTime = 20
     @State private var instructionNum = 1
@@ -21,7 +22,7 @@ struct AddingRecipeView: View {
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $viewModel.path) {
             Form {
                 titleSection
                 
@@ -38,8 +39,12 @@ struct AddingRecipeView: View {
                 instructionSection
             }
             .toolbar {
-                Button("Save") {
-                    // saving process -> galiba core data burda eklenicek.
+                
+                Button {
+                    viewModel.showSheet.toggle()
+                    viewModel.addRecipe(recipe: Recipe(recipeName: recipeName, servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                } label: {
+                   Text("Save")
                 }
             }
             .navigationTitle("New Recipe")
@@ -52,13 +57,13 @@ struct AddingRecipeView: View {
             Text("Title")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.heavy)
+                .bold()
                 .foregroundStyle(.black)
         }
     }
     var servingSection: some View {
         Section {
-            Picker("Number of People", selection: $selectedPerCount) {
+            Picker("Number of People", selection: $servings) {
                 ForEach(1..<11, id: \.self) { i in
                     Text("\(i)")
                 }
@@ -67,7 +72,7 @@ struct AddingRecipeView: View {
             Text("Serving")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.heavy)
+                .bold()
                 .foregroundStyle(.black)
         }
     }
@@ -82,7 +87,7 @@ struct AddingRecipeView: View {
             Text("Prep Time")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.heavy)
+                .bold()
                 .foregroundStyle(.black)
         }
     }
@@ -97,7 +102,7 @@ struct AddingRecipeView: View {
             Text("Cooking time")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.heavy)
+                .bold()
                 .foregroundStyle(.black)
         }
     }
@@ -109,7 +114,7 @@ struct AddingRecipeView: View {
             Text("Description")
                 .textCase(.none)
                 .font(.title2)
-                .fontWeight(.heavy)
+                .bold()
                 .foregroundStyle(.black)
         }
     }
@@ -123,7 +128,7 @@ struct AddingRecipeView: View {
                 Text("Ingredients")
                     .textCase(.none)
                     .font(.title2)
-                    .fontWeight(.heavy)
+                    .bold()
                     .foregroundStyle(.black)
                 
                 Spacer()
@@ -150,7 +155,7 @@ struct AddingRecipeView: View {
                 Text("Instructions")
                     .textCase(.none)
                     .font(.title2)
-                    .fontWeight(.heavy)
+                    .bold()
                     .foregroundStyle(.black)
                 
                 Spacer()
@@ -168,7 +173,7 @@ struct AddingRecipeView: View {
         }
     }
 }
-
 #Preview {
     AddingRecipeView()
+        .environmentObject(RecipeViewModel())
 }

@@ -8,20 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-  @EnvironmentObject var viewModel: RecipeViewModel
-    
+    @StateObject var viewModel = RecipeViewModel()
     var body: some View {
-        NavigationStack {
-            List(viewModel.recipes) { recipe in
-                Text(recipe.recipeName)
-                    .navigationTitle("Yummo")
+        NavigationStack(path: $viewModel.path) {
+            List {
+                ForEach(viewModel.recipes) { recipe in
+                    NavigationLink(recipe.recipeName, value: recipe)
+                }
+            }
+            .navigationTitle("Recipes")
+            .navigationDestination(for: Recipe.self) { recipe in
+                RecipeView(recipe: recipe)
             }
             .toolbar {
-                NavigationLink("+", destination: {
-                    AddingRecipeView()
-                })
+                Button {
+                    viewModel.showSheet.toggle()
+                } label: {
+                    Text("+")
+                }
                 .foregroundStyle(.primary)
                 .font(.title)
+                .fullScreenCover(isPresented: $viewModel.showSheet, content: {
+                    AddingRecipeView()
+                        .environmentObject(viewModel)
+                })
             }
         }
     }
@@ -29,5 +39,4 @@ struct HomeView: View {
     
 #Preview {
     HomeView()
-        .environmentObject(RecipeViewModel())
 }

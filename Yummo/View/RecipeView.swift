@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeView: View {
     @EnvironmentObject var viewModel: RecipeViewModel
-    var recipe: RecipeCard
+    var recipe: Recipe
     
     var body: some View {
         ScrollView {
@@ -19,15 +19,15 @@ struct RecipeView: View {
                 
                 // recipe info's field + 1.total time should be added
                 HStack(spacing: 6) {
-                    recipeLabelMaker(iconImage: "person.2.fill", amount: 5, label: "per")
+                    recipeLabelMaker(iconImage: "person.2.fill", amount: recipe.servings, label: "per")
                     
                     VerticalDivider()
                     
-                    recipeLabelMaker(iconImage: "timer", amount: 20, label: "Prep")
+                    recipeLabelMaker(iconImage: "timer", amount: recipe.preperationTime, label: "Prep")
                     
                     VerticalDivider()
                     
-                    recipeLabelMaker(iconImage: "oven.fill", amount: 15, label: "Cook")
+                    recipeLabelMaker(iconImage: "oven.fill", amount: recipe.cookingTime, label: "Cook")
                 }
                 .padding()
                 
@@ -101,7 +101,6 @@ struct RecipeView: View {
         .padding()
     }
 }
-
 #Preview {
-    RecipeView(recipe: RecipeCard.all[0])
+    RecipeView(recipe: Recipe.all[0])
 }

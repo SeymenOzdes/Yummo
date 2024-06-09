@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecipeCard: Identifiable {   // instructionText eklenebilir.
+struct Recipe: Identifiable, Hashable {   // instructionText eklenebilir.
     let id = UUID()
     var recipeName: String
     var servings: Int
@@ -18,9 +18,9 @@ struct RecipeCard: Identifiable {   // instructionText eklenebilir.
     var instructions: Array<String>
 }
 // MARK: - Mock Data
-extension RecipeCard {
-    static let all: [RecipeCard] = [
-        RecipeCard(
+extension Recipe {
+    static let all: [Recipe] = [
+        Recipe(
                    recipeName: "Coq au Vin",
                    servings: 4,
                    preperationTime: 20,
@@ -51,7 +51,7 @@ extension RecipeCard {
                     "Once done, season with salt and pepper to taste. Serve hot."
                    ]
                   ),
-        RecipeCard(
+        Recipe(
             recipeName: "Beef Bourguignon",
             servings: 6,
             preperationTime: 30,
@@ -83,7 +83,7 @@ extension RecipeCard {
                 "Once done, season with salt and pepper to taste. Serve hot."
             ]
         ),
-        RecipeCard(
+        Recipe(
             recipeName: "Ratatouille",
             servings: 4,
             preperationTime: 20,
@@ -112,7 +112,7 @@ extension RecipeCard {
                 "Once done, season with salt and pepper to taste. Serve hot or cold."
             ]
         ),
-        RecipeCard(
+        Recipe(
             recipeName: "French Onion Soup",
             servings: 4,
             preperationTime: 15,
@@ -137,7 +137,7 @@ extension RecipeCard {
                 "Serve hot."
             ]
         ),
-        RecipeCard(
+        Recipe(
             recipeName: "Quiche Lorraine",
             servings: 6,
             preperationTime: 30,
@@ -165,14 +165,3 @@ extension RecipeCard {
         )
     ]
 }
-/*
- struct Recipe {
-    var recipes: Array<RecipeCard> // only setter, people can see it but doesnt change it.
-     
-     
-     
-     func addRecipe(recipe: Recipe) {
-        
-    }
- }
- */
