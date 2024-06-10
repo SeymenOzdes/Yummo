@@ -22,7 +22,7 @@ struct AddingRecipeView: View {
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
     var body: some View {
-        NavigationStack(path: $viewModel.path) {
+        NavigationStack {
             Form {
                 titleSection
                 
@@ -39,12 +39,20 @@ struct AddingRecipeView: View {
                 instructionSection
             }
             .toolbar {
-                
-                Button {
-                    viewModel.showSheet.toggle()
-                    viewModel.addRecipe(recipe: Recipe(recipeName: recipeName, servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
-                } label: {
-                   Text("Save")
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        viewModel.showSheet.toggle()
+                        viewModel.addRecipe(recipe: Recipe(recipeName: recipeName, servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                    } label: {
+                        Image(systemName: "checkmark.circle")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        viewModel.showSheet.toggle()
+                    }label: {
+                        Image(systemName: "xmark.circle")
+                    }
                 }
             }
             .navigationTitle("New Recipe")
