@@ -5,6 +5,7 @@
 //  Created by Seymen Özdeş on 24.03.2024.
 //
 import SwiftUI
+import PhotosUI
 
 struct AddingRecipeView: View {
     @EnvironmentObject var viewModel: RecipeViewModel
@@ -19,12 +20,16 @@ struct AddingRecipeView: View {
     @State private var ingredients: Array<String> = []
     @State private var instructions: Array<String> = [] // dictionary olmalı
     @State private var instructionTexts: Array<String> = []
+    @State private var recipeImage: UIImage?
+    @State private var photosPickerItem: PhotosPickerItem?
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     
     var body: some View {
         NavigationStack {
             Form {
                 titleSection
+                
+                imageSection
                 
                 servingSection
                 
@@ -67,6 +72,24 @@ struct AddingRecipeView: View {
                 .font(.title2)
                 .bold()
                 .foregroundStyle(.black)
+        }
+    }
+    var imageSection: some View {
+        Section {
+                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                    HStack(spacing: 22) {
+                        Image(uiImage: recipeImage ?? UIImage(resource: .defaultRecipe))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 52, height: 52)
+                        
+                        Text("Add Recipe Photo")
+                            .foregroundStyle(.black)
+                            .font(.body)
+                    }
+                }
+        }header: {
+            Text("Image")
         }
     }
     var servingSection: some View {
