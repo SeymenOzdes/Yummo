@@ -22,7 +22,6 @@ struct AddingRecipeView: View {
     @State private var instructionTexts: Array<String> = []
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -83,9 +82,6 @@ struct AddingRecipeView: View {
                         .frame(width: 52, height: 52)
                         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
                 }
-                
-                
-                
                 PhotosPicker(selection: $viewModel.photosPickerItem, matching: .images) {
                     HStack {
                             Spacer()
