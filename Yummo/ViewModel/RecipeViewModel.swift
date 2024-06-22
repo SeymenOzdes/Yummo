@@ -7,16 +7,40 @@
 
 import Foundation
 import SwiftUI
+import PhotosUI
 
 class RecipeViewModel: ObservableObject {
     @Published private(set) var recipes: [Recipe] = []
     @Published var path = [Recipe]()
     @Published var showSheet = false
     
+    @Published private(set) var recipeImage: UIImage? = nil
+    @Published var photosPickerItem: PhotosPickerItem? = nil {
+        didSet {
+            setImage(from: photosPickerItem)
+        }
+    }
+    
     init() {
         recipes = Recipe.all
     }
-    func addRecipe(recipe: Recipe) { 
+    
+    func addRecipe(recipe: Recipe) {
         recipes.append(recipe)
+    }
+    func setImage(from selection: PhotosPickerItem?) {
+        guard let selection else { // öncelikle değişkenin nil olup olmadığını kontrol ettik.
+            return
+        }
+        
+        Task {
+            if let data = try? await selection.loadTransferable(type: Data.self) {
+                if let image = UIImage(data: data) {
+                    recipeImage = image
+                    return                 // Task görev bloğunu durdurdu.
+                }
+            }
+        }
+        
     }
 }

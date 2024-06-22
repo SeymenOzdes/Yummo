@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = RecipeViewModel()
+    
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             List {
