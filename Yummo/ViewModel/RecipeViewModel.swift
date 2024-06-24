@@ -13,8 +13,7 @@ class RecipeViewModel: ObservableObject {
     @Published private(set) var recipes: [Recipe] = []
     @Published var path = [Recipe]()
     @Published var showSheet = false
-    
-    @Published private(set) var recipeImage: UIImage? = nil
+    @Published var recipeImage: UIImage? = nil
     @Published var photosPickerItem: PhotosPickerItem? = nil {
         didSet {
             setImage(from: photosPickerItem)
@@ -28,7 +27,7 @@ class RecipeViewModel: ObservableObject {
     func addRecipe(recipe: Recipe) {
         recipes.append(recipe)
     }
-    func setImage(from selection: PhotosPickerItem?) {
+   private func setImage(from selection: PhotosPickerItem?) {
         guard let selection else { // öncelikle değişkenin nil olup olmadığını kontrol ettik.
             return
         }
@@ -36,11 +35,14 @@ class RecipeViewModel: ObservableObject {
         Task {
             if let data = try? await selection.loadTransferable(type: Data.self) {
                 if let image = UIImage(data: data) {
-                    recipeImage = image
-                    return                 // Task görev bloğunu durdurdu.
+                    DispatchQueue.main.async {
+                        self.recipeImage = image
+                        return         // Task görev bloğunu durdurdu.
+
+                    }
+                    
                 }
             }
         }
-        
     }
 }

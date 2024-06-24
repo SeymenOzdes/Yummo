@@ -17,6 +17,27 @@ struct RecipeView: View {
                 Text(recipe.recipeName)
                     .font(.largeTitle).bold()
                 
+                if let image = viewModel.recipeImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 360, height: 160)
+                        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 16, height: 10)))
+                }
+                else {
+                    ZStack {
+                        
+                        RoundedRectangle(cornerSize: CGSize(width: 16, height: 10) )
+                            .foregroundStyle(Color.gray)
+                            .frame(width: 360, height: 160)
+                            
+                        
+                        Image(systemName: "photo")
+                            .font(.title)
+                            .foregroundStyle(Color.white)
+                    }
+                }
+                
                 // recipe info's field + 1.total time should be added
                 HStack(spacing: 6) {
                     recipeLabelMaker(iconImage: "person.2.fill", amount: recipe.servings, label: "per")
@@ -31,13 +52,10 @@ struct RecipeView: View {
                 }
                 .padding()
                 
-                // Description section
                 descriptionSection
                 
-                // Ingredients section
                 ingredientsSection
                 
-                // Instruction section
                 instructionSection
             }
             .padding()

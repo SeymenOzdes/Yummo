@@ -20,6 +20,7 @@ struct HomeView: View {
             .navigationTitle("Recipes")
             .navigationDestination(for: Recipe.self) { recipe in
                 RecipeView(recipe: recipe)
+                    .environmentObject(viewModel)
             }
             .toolbar {
                 Button {
