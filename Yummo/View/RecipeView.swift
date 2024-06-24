@@ -4,7 +4,6 @@
 //
 //  Created by Seymen Özdeş on 23.03.2024.
 //
-
 import SwiftUI
 
 struct RecipeView: View {

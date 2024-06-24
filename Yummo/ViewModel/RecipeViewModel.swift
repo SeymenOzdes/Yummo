@@ -37,10 +37,8 @@ class RecipeViewModel: ObservableObject {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self.recipeImage = image
-                        return         // Task görev bloğunu durdurdu.
-
                     }
-                    
+                    return         // Task görev bloğunu durdurdu.
                 }
             }
         }
