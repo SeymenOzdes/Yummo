@@ -16,7 +16,7 @@ struct RecipeView: View {
                 Text(recipe.recipeName)
                     .font(.largeTitle).bold()
                 
-                if let image = viewModel.recipeImage {
+                if let image = recipe.recipePhoto {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
@@ -30,7 +30,6 @@ struct RecipeView: View {
                             .foregroundStyle(Color.gray)
                             .frame(width: 360, height: 160)
                             
-                        
                         Image(systemName: "photo")
                             .font(.title)
                             .foregroundStyle(Color.white)

@@ -45,7 +45,9 @@ struct AddingRecipeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.showSheet.toggle()
-                        viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhotos: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                        viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                        viewModel.recipeImage = nil
+
                     } label: {
                         Image(systemName: "checkmark.circle")
                     }

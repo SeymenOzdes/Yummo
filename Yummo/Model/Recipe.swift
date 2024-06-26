@@ -11,7 +11,7 @@ import UIKit
 struct Recipe: Identifiable, Hashable {   // instructionText eklenebilir.
     let id = UUID()
     var recipeName: String
-    var recipePhotos: UIImage?
+    var recipePhoto: UIImage?
     var servings: Int
     var preperationTime: Int
     var cookingTime: Int
@@ -24,7 +24,7 @@ extension Recipe {
     static let all: [Recipe] = [
         Recipe(
                    recipeName: "Coq au Vin",
-                   recipePhotos: nil,
+                   recipePhoto: nil,
                    servings: 4,
                    preperationTime: 20,
                    cookingTime: 120,
@@ -56,7 +56,7 @@ extension Recipe {
                   ),
         Recipe(
             recipeName: "Beef Bourguignon",
-            recipePhotos: nil,
+            recipePhoto: nil,
             servings: 6,
             preperationTime: 30,
             cookingTime: 180,
@@ -89,7 +89,7 @@ extension Recipe {
         ),
         Recipe(
             recipeName: "Ratatouille",
-            recipePhotos: nil,
+            recipePhoto: nil,
             servings: 4,
             preperationTime: 20,
             cookingTime: 60,
@@ -119,7 +119,7 @@ extension Recipe {
         ),
         Recipe(
             recipeName: "French Onion Soup",
-            recipePhotos: nil,
+            recipePhoto: nil,
             servings: 4,
             preperationTime: 15,
             cookingTime: 60,
@@ -145,7 +145,7 @@ extension Recipe {
         ),
         Recipe(
             recipeName: "Quiche Lorraine",
-            recipePhotos: nil, 
+            recipePhoto: nil, 
             servings: 6,
             preperationTime: 30,
             cookingTime: 45,
