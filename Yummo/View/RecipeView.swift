@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct RecipeView: View {
-    @EnvironmentObject var viewModel: RecipeViewModel
     var recipe: Recipe
     
     var body: some View {
@@ -118,5 +117,5 @@ struct RecipeView: View {
     }
 }
 #Preview {
-    RecipeView(recipe: Recipe.all[0])
+    RecipeView(recipe: Recipe.mockData[0])
 }

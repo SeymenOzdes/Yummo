@@ -4,37 +4,22 @@
 //
 //  Created by Seymen Özdeş on 19.03.2024.
 //
-
 import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = RecipeViewModel()
     
     var body: some View {
-        NavigationStack(path: $viewModel.path) {
-            List {
-                ForEach(viewModel.recipes) { recipe in
-                    NavigationLink(recipe.recipeName, value: recipe)
+        TabView {
+            RecipeHomeView()
+                .tabItem {
+                    Label("Recipes", systemImage: "book.pages.fill")
                 }
-            }
-            .navigationTitle("Recipes")
-            .navigationDestination(for: Recipe.self) { recipe in
-                RecipeView(recipe: recipe)
-                    .environmentObject(viewModel)
-            }
-            .toolbar {
-                Button {
-                    viewModel.showSheet.toggle()
-                } label: {
-                    Text("+")
+            ShoppingListView()
+                .tabItem {
+                    Label("List", systemImage: "list.bullet.rectangle.portrait.fill")
                 }
-                .foregroundStyle(.primary)
-                .font(.title)
-                .fullScreenCover(isPresented: $viewModel.showSheet, content: {
-                    AddingRecipeView()
-                        .environmentObject(viewModel)
-                })
-            }
+            
         }
     }
 }

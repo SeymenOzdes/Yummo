@@ -21,7 +21,7 @@ struct Recipe: Identifiable, Hashable {   // instructionText eklenebilir.
 }
 // MARK: - Mock Data
 extension Recipe {
-    static let all: [Recipe] = [
+    static let mockData: [Recipe] = [
         Recipe(
                    recipeName: "Coq au Vin",
                    recipePhoto: nil,

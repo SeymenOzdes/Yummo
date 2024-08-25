@@ -21,7 +21,7 @@ class RecipeViewModel: ObservableObject {
     }
     
     init() {
-        recipes = Recipe.all
+        recipes = Recipe.mockData
     }
     
     func addRecipe(recipe: Recipe) {
