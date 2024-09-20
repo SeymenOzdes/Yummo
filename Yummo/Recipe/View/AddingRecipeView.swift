@@ -47,7 +47,7 @@ struct AddingRecipeView: View {
                         viewModel.showSheet.toggle()
                        // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
                         
-                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instructions)
+                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instructionTexts)
                         viewModel.recipeImage = nil
 
                     } label: {
