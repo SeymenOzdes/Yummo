@@ -8,7 +8,10 @@ import SwiftUI
 
 struct RecipeView: View {
     var recipe: Recipe
-    
+    @EnvironmentObject var viewModel: RecipeViewModel
+    @State private var selectedTask: String = "more"
+    var tasks = ["delete", "more"]
+
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 24) {
@@ -55,13 +58,13 @@ struct RecipeView: View {
                 
                 instructionSection
             }
-            .padding()
+            .padding() 
         }
         
         Spacer()
         
     }
-    func recipeLabelMaker(iconImage: String, amount: Int, label: String) -> some View {
+    func recipeLabelMaker(iconImage: String, amount: Int16, label: String) -> some View {
         return Group {
             Image(systemName: iconImage)
             VStack {
@@ -115,7 +118,4 @@ struct RecipeView: View {
         }
         .padding()
     }
-}
-#Preview {
-    RecipeView(recipe: Recipe.mockData[0])
 }

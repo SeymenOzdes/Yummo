@@ -3,39 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2E02E0F72BA9ECC300EDB8E5 /* YummoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */; };
-		2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */; };
 		2E02E0FB2BA9ECC300EDB8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */; };
 		2E02E0FE2BA9ECC300EDB8E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */; };
-		2E0C28272BB31E67003526D1 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */; };
 		2E0C282B2BB3236F003526D1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C282A2BB3236F003526D1 /* Recipe.swift */; };
-		2E17C75B2C7B5DC70087246A /* RecipeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E17C75A2C7B5DC70087246A /* RecipeHomeView.swift */; };
-		2E17C75D2C7B77FA0087246A /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E17C75C2C7B77FA0087246A /* ShoppingListView.swift */; };
-		2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */; };
-		2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */; };
+		2E17C75F2C7B7DBA0087246A /* FoodListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E17C75E2C7B7DBA0087246A /* FoodListRowView.swift */; };
+		2E17C7612C7B91340087246A /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E17C7602C7B91340087246A /* Checkbox.swift */; };
+		2E17C7652C7BAFCE0087246A /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E17C7642C7BAFCE0087246A /* ShoppingItems.swift */; };
+		2E4816642C7F341C00B4465D /* RecipeDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E4816622C7F341C00B4465D /* RecipeDataModel.xcdatamodeld */; };
 		2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */; };
+		2EA055B72C9DA6A30033CBAB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA055B32C9DA6A30033CBAB /* HomeView.swift */; };
 		2EA77F102C172B8400775F57 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA77F0F2C172B8400775F57 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E02E0F32BA9ECC300EDB8E5 /* Yummo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummoApp.swift; sourceTree = "<group>"; };
-		2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E02E0FD2BA9ECC300EDB8E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		2E0C282A2BB3236F003526D1 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		2E17C75A2C7B5DC70087246A /* RecipeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHomeView.swift; sourceTree = "<group>"; };
-		2E17C75C2C7B77FA0087246A /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
-		2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingRecipeView.swift; sourceTree = "<group>"; };
-		2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		2E17C75E2C7B7DBA0087246A /* FoodListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListRowView.swift; sourceTree = "<group>"; };
+		2E17C7602C7B91340087246A /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		2E17C7642C7BAFCE0087246A /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
+		2E4816632C7F341C00B4465D /* RecipeDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
+		2EA055B32C9DA6A30033CBAB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2EA77F0F2C172B8400775F57 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2EA055AE2C9DA69A0033CBAB /* Recipe */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Recipe; sourceTree = "<group>"; };
+		2EA055C02C9DA6C50033CBAB /* ShoppingList */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ShoppingList; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2E02E0F02BA9ECC300EDB8E5 /* Frameworks */ = {
@@ -68,11 +71,14 @@
 			isa = PBXGroup;
 			children = (
 				2E02E0F62BA9ECC300EDB8E5 /* YummoApp.swift */,
-				2E597AB62BAEBB9000C8AEB5 /* View */,
-				2E0C28252BB31C33003526D1 /* ViewModel */,
+				2EA055B32C9DA6A30033CBAB /* HomeView.swift */,
+				2EA055C02C9DA6C50033CBAB /* ShoppingList */,
+				2EA055AE2C9DA69A0033CBAB /* Recipe */,
+				2E597AB92BAED5BA00C8AEB5 /* Components */,
 				2E7BB4482BB2F55300132C5B /* Model */,
 				2E02E0FA2BA9ECC300EDB8E5 /* Assets.xcassets */,
 				2E02E0FC2BA9ECC300EDB8E5 /* Preview Content */,
+				2E4816622C7F341C00B4465D /* RecipeDataModel.xcdatamodeld */,
 			);
 			path = Yummo;
 			sourceTree = "<group>";
@@ -85,32 +91,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2E0C28252BB31C33003526D1 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2E0C28262BB31E67003526D1 /* RecipeViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2E597AB62BAEBB9000C8AEB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2E597AB92BAED5BA00C8AEB5 /* Components */,
-				2E02E0F82BA9ECC300EDB8E5 /* HomeView.swift */,
-				2E597AB72BAEBBF400C8AEB5 /* RecipeView.swift */,
-				2E30DB312BB06E5800C9A45D /* AddingRecipeView.swift */,
-				2E17C75A2C7B5DC70087246A /* RecipeHomeView.swift */,
-				2E17C75C2C7B77FA0087246A /* ShoppingListView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		2E597AB92BAED5BA00C8AEB5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2E17C75E2C7B7DBA0087246A /* FoodListRowView.swift */,
 				2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */,
 				2EA77F0F2C172B8400775F57 /* CardView.swift */,
+				2E17C7602C7B91340087246A /* Checkbox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -118,6 +105,7 @@
 		2E7BB4482BB2F55300132C5B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E17C7642C7BAFCE0087246A /* ShoppingItems.swift */,
 				2E0C282A2BB3236F003526D1 /* Recipe.swift */,
 			);
 			path = Model;
@@ -137,6 +125,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2EA055AE2C9DA69A0033CBAB /* Recipe */,
+				2EA055C02C9DA6C50033CBAB /* ShoppingList */,
 			);
 			name = Yummo;
 			productName = Yummo;
@@ -193,15 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E597AB82BAEBBF400C8AEB5 /* RecipeView.swift in Sources */,
-				2E02E0F92BA9ECC300EDB8E5 /* HomeView.swift in Sources */,
 				2E0C282B2BB3236F003526D1 /* Recipe.swift in Sources */,
-				2E30DB322BB06E5800C9A45D /* AddingRecipeView.swift in Sources */,
-				2E17C75D2C7B77FA0087246A /* ShoppingListView.swift in Sources */,
-				2E0C28272BB31E67003526D1 /* RecipeViewModel.swift in Sources */,
+				2EA055B72C9DA6A30033CBAB /* HomeView.swift in Sources */,
 				2E02E0F72BA9ECC300EDB8E5 /* YummoApp.swift in Sources */,
+				2E17C75F2C7B7DBA0087246A /* FoodListRowView.swift in Sources */,
+				2E17C7652C7BAFCE0087246A /* ShoppingItems.swift in Sources */,
+				2E17C7612C7B91340087246A /* Checkbox.swift in Sources */,
 				2EA77F102C172B8400775F57 /* CardView.swift in Sources */,
-				2E17C75B2C7B5DC70087246A /* RecipeHomeView.swift in Sources */,
+				2E4816642C7F341C00B4465D /* RecipeDataModel.xcdatamodeld in Sources */,
 				2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +399,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E4816622C7F341C00B4465D /* RecipeDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E4816632C7F341C00B4465D /* RecipeDataModel.xcdatamodel */,
+			);
+			currentVersion = 2E4816632C7F341C00B4465D /* RecipeDataModel.xcdatamodel */;
+			name = RecipeDataModel.xcdatamodeld;
+			path = /Users/seymenozdes/Projects/Swift/Yummo/Yummo/RecipeDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E02E0EB2BA9ECC300EDB8E5 /* Project object */;
 }

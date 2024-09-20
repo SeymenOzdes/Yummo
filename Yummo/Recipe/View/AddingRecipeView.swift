@@ -12,9 +12,9 @@ struct AddingRecipeView: View {
     
     @State private var recipeName = ""
     @State private var description = ""
-    @State private var servings = 1
-    @State private var selectedPrepTime = 0
-    @State private var selectedCookTime = 20
+    @State private var servings: Int16 = 1
+    @State private var selectedPrepTime: Int16 = 5
+    @State private var selectedCookTime: Int16 = 20
     @State private var instructionNum = 1
     @State private var instructionNums: Array<Int> = []
     @State private var ingredients: Array<String> = []
@@ -45,7 +45,9 @@ struct AddingRecipeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.showSheet.toggle()
-                        viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                       // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                        
+                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instructions)
                         viewModel.recipeImage = nil
 
                     } label: {
@@ -105,6 +107,7 @@ struct AddingRecipeView: View {
             Picker("Number of People", selection: $servings) {
                 ForEach(1..<11, id: \.self) { i in
                     Text("\(i)")
+                        .tag(Int16(i))
                 }
             }
         } header: {
@@ -120,6 +123,7 @@ struct AddingRecipeView: View {
             Picker("choose preperation time", selection: $selectedPrepTime) {
                 ForEach(times, id: \.self) { i in
                     Text("\(i)")
+                        .tag(Int16(i))
                 }
             }
         } header: {
@@ -135,6 +139,7 @@ struct AddingRecipeView: View {
             Picker("choose cooking time", selection: $selectedCookTime) {
                 ForEach(times, id: \.self) { i in
                     Text("\(i)")
+                        .tag(Int16(i))
                 }
             }
         } header: {

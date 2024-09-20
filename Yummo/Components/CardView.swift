@@ -57,6 +57,4 @@ struct CardView: View {
     }
 }
 
-#Preview {
-    CardView(recipe: Recipe.mockData[0])
-}
+

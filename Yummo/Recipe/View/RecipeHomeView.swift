@@ -9,12 +9,13 @@ import SwiftUI
 
 struct RecipeHomeView: View {
     @StateObject var viewModel = RecipeViewModel()
-
+    
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 26) {
-                    ForEach(viewModel.recipes) { recipe in
+                    ForEach(viewModel.savedEntities, id: \.self) { recipeEntity in
+                        let recipe = Recipe(entity: recipeEntity)
                         NavigationLink(value: recipe) {
                             CardView(recipe: recipe)
                         }

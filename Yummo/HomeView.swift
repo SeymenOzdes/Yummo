@@ -6,20 +6,17 @@
 //
 import SwiftUI
 
-struct HomeView: View {
-    @StateObject var viewModel = RecipeViewModel()
-    
+struct HomeView: View {    
     var body: some View {
         TabView {
             RecipeHomeView()
                 .tabItem {
-                    Label("Recipes", systemImage: "book.pages.fill")
+                    Label("Recipes", systemImage: "book.fill")
                 }
             ShoppingListView()
                 .tabItem {
                     Label("List", systemImage: "list.bullet.rectangle.portrait.fill")
                 }
-            
         }
     }
 }
