@@ -18,8 +18,7 @@ struct AddingRecipeView: View {
     @State private var instructionNum = 1
     @State private var instructionNums: Array<Int> = []
     @State private var ingredients: Array<String> = []
-    @State private var instructions: Array<String> = [] // dictionary olmalı
-    @State private var instructionTexts: Array<String> = []
+    @State private var instruction: Array<String> = []
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
     var body: some View {
@@ -47,7 +46,7 @@ struct AddingRecipeView: View {
                         viewModel.showSheet.toggle()
                        // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
                         
-                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instructionTexts)
+                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instruction)
                         viewModel.recipeImage = nil
 
                     } label: {
@@ -188,10 +187,10 @@ struct AddingRecipeView: View {
     }
     var instructionSection: some View {
         Section {
-            ForEach(instructions.indices, id: \.self) { i in
+            ForEach(instruction.indices, id: \.self) { i in
                 HStack() {
                     Text("\(instructionNums[i])")
-                    TextEditor(text: $instructionTexts[i])
+                    TextEditor(text: $instruction[i])
                 }
             }
         } header: {
@@ -206,8 +205,7 @@ struct AddingRecipeView: View {
                 
                 Button {
                     let newInstruction = "" // Burada yeni bir talimat oluştur
-                    instructions.append(newInstruction)
-                    instructionTexts.append(newInstruction)
+                    instruction.append(newInstruction)
                     instructionNums.append(instructionNum)
                     instructionNum += 1
                 } label: {
