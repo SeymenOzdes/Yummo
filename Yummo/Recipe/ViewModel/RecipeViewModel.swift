@@ -11,7 +11,6 @@ import PhotosUI
 import CoreData
 
 class RecipeViewModel: ObservableObject {
-    // @Published private(set) var recipes: [Recipe] = []
     
     @Published var path = [Recipe]()
     @Published var showSheet = false
@@ -28,7 +27,6 @@ class RecipeViewModel: ObservableObject {
     
     init() {
         // recipes = Recipe.mockData
-        
         container = NSPersistentContainer(name: "RecipeDataModel")
         container.loadPersistentStores { _, error in
             if let error = error {
@@ -43,14 +41,15 @@ class RecipeViewModel: ObservableObject {
         
         do {
             savedEntities = try container.viewContext.fetch(request)
-        } catch let error{
+        } catch let error {
             print("error fetching \(error)")
         }
     }
     // sadece recipeEntity oluşturuyor. Veritabanına kaydetme işlemini save data yapıyor.
     func addRecipeCoreData(recipeName: String, recipeDesc: String,
-                       recipePrepTime: Int16, recipeCookingTime: Int16,
-                       recipeServings: Int16, ingredients: [String], instructions: [String]) {
+                           recipePrepTime: Int16, recipeCookingTime: Int16,
+                           recipeServings: Int16, ingredients: [String],
+                           instructions: [Int : String]) {
         
         let newRecipeEntity = RecipeEntity(context: container.viewContext)
         newRecipeEntity.recipeName = recipeName
@@ -59,9 +58,8 @@ class RecipeViewModel: ObservableObject {
         newRecipeEntity.cookingTime = recipeCookingTime
         newRecipeEntity.servings = recipeServings
         newRecipeEntity.ingredients = ingredients as NSArray
-        newRecipeEntity.instructions = instructions as NSArray
+        newRecipeEntity.instructions = instructions as NSDictionary
         
-  
         SaveData()
     }
     func SaveData() {
@@ -89,6 +87,3 @@ class RecipeViewModel: ObservableObject {
         }
     }
 }
-//func addRecipe(recipe: Recipe) {
- //   recipes.append(recipe)
-// }

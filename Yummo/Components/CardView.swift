@@ -4,7 +4,6 @@
 //
 //  Created by Seymen Özdeş on 10.06.2024.
 //
-// 1.default olarak heigth ve width değişkenleri oluştur.
 
 import SwiftUI
 

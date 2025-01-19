@@ -18,7 +18,7 @@ struct AddingRecipeView: View {
     @State private var instructionNum = 1
     @State private var instructionNums: Array<Int> = []
     @State private var ingredients: Array<String> = []
-    @State private var instruction: Array<String> = []
+    @State private var instruction: [Int : String] = [:]
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
     var body: some View {
@@ -44,11 +44,18 @@ struct AddingRecipeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.showSheet.toggle()
-                       // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
+                        // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
                         
-                        viewModel.addRecipeCoreData(recipeName: recipeName, recipeDesc: description, recipePrepTime: selectedPrepTime, recipeCookingTime: selectedCookTime, recipeServings: servings, ingredients: ingredients, instructions: instruction)
+                        viewModel.addRecipeCoreData(
+                            recipeName: recipeName,
+                            recipeDesc: description,
+                            recipePrepTime: selectedPrepTime,
+                            recipeCookingTime: selectedCookTime,
+                            recipeServings: servings,
+                            ingredients: ingredients,
+                            instructions: instruction
+                        )
                         viewModel.recipeImage = nil
-
                     } label: {
                         Image(systemName: "checkmark.circle")
                     }
@@ -187,14 +194,18 @@ struct AddingRecipeView: View {
     }
     var instructionSection: some View {
         Section {
-            ForEach(instruction.indices, id: \.self) { i in
-                HStack() {
-                    Text("\(instructionNums[i])")
-                    TextEditor(text: $instruction[i])
+            ForEach(instruction.sorted(by: <), id: \.key) { key, value in
+                HStack {
+                    Text("\(key)")
+                    
+                    TextEditor(text: Binding(
+                        get: { instruction[key] ?? "" }, // Return the value for the key, or an empty string if nil
+                        set: { newValue in instruction[key] = newValue } // Update the value for the key
+                    ))
                 }
             }
         } header: {
-            HStack() {
+            HStack {
                 Text("Instructions")
                     .textCase(.none)
                     .font(.title2)
@@ -204,8 +215,8 @@ struct AddingRecipeView: View {
                 Spacer()
                 
                 Button {
-                    let newInstruction = "" // Burada yeni bir talimat oluştur
-                    instruction.append(newInstruction)
+                    let newInstruction = ""
+                    instruction[instructionNum] = newInstruction
                     instructionNums.append(instructionNum)
                     instructionNum += 1
                 } label: {

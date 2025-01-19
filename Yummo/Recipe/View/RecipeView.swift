@@ -11,7 +11,7 @@ struct RecipeView: View {
     @EnvironmentObject var viewModel: RecipeViewModel
     @State private var selectedTask: String = "more"
     var tasks = ["delete", "more"]
-
+    
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 24) {
@@ -27,11 +27,10 @@ struct RecipeView: View {
                 }
                 else {
                     ZStack {
-                        
                         RoundedRectangle(cornerSize: CGSize(width: 16, height: 10) )
                             .foregroundStyle(Color.gray)
                             .frame(width: 360, height: 160)
-                            
+                        
                         Image(systemName: "photo")
                             .font(.title)
                             .foregroundStyle(Color.white)
@@ -58,7 +57,7 @@ struct RecipeView: View {
                 
                 instructionSection
             }
-            .padding() 
+            .padding()
         }
         
         Spacer()
@@ -78,6 +77,7 @@ struct RecipeView: View {
         VStack(alignment: .leading) {
             Text("Description")
                 .font(.title2)
+                .foregroundStyle(.orange)
             
             Divider()
             
@@ -91,6 +91,7 @@ struct RecipeView: View {
         VStack(alignment: .leading) {
             Text("Ingredients")
                 .font(.title2)
+                .foregroundStyle(.indigo)
             
             Divider()
             
@@ -107,12 +108,27 @@ struct RecipeView: View {
         VStack(alignment: .leading) {
             Text("Instruction")
                 .font(.title2)
+                .foregroundStyle(.mint)
             
             Divider()
             
-            VStack(alignment: .leading, spacing: 12) {
-                ForEach(recipe.instructions, id: \.self) {instruction in
-                    Text(instruction)
+            VStack(alignment: .leading, spacing: 6) {
+                ForEach(recipe.instructions.sorted(by: <), id: \.key) {key, value in
+                    HStack(spacing: 6) {
+                        ZStack(alignment: .center) {
+                            Circle()
+                                .frame(width: 28, height: 28)
+                                .foregroundStyle(Color.orange.secondary.opacity(0.82))
+                            
+                            Text("\(key)")
+                                .foregroundStyle(.orange)
+                                .fontWeight(.black)
+                        }
+                        
+                        
+                            // buraya eklenicek.
+                        Text("\(value)")
+                    }
                 }
             }
         }
