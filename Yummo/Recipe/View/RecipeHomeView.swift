@@ -18,6 +18,13 @@ struct RecipeHomeView: View {
                         let recipe = Recipe(entity: recipeEntity)
                         NavigationLink(value: recipe) {
                             CardView(recipe: recipe)
+                                .contextMenu {
+                                    Button {
+                                        viewModel.deleteRecipe(recipe: recipeEntity)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                 }

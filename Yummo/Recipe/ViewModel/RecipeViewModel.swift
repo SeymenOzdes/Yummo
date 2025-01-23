@@ -21,12 +21,10 @@ class RecipeViewModel: ObservableObject {
         }
     }
     
-    // core data
     @Published var savedEntities: [RecipeEntity] = []
     let container: NSPersistentContainer
     
     init() {
-        // recipes = Recipe.mockData
         container = NSPersistentContainer(name: "RecipeDataModel")
         container.loadPersistentStores { _, error in
             if let error = error {
@@ -70,6 +68,18 @@ class RecipeViewModel: ObservableObject {
             print("Error saving data: \(error.localizedDescription)")
         }
     }
+    
+    func deleteRecipe(recipe: RecipeEntity) {
+             container.viewContext.delete(recipe)
+        
+        do {
+            try container.viewContext.save()
+            fetchRequest()
+        } catch let error {
+            print("Error deleting recipe: \(error.localizedDescription)")
+        }
+    }
+    
     private func setImage(from selection: PhotosPickerItem?) {
         guard let selection else { // öncelikle değişkenin nil olup olmadığını kontrol ettik.
             return

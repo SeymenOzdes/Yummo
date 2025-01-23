@@ -9,8 +9,6 @@ import SwiftUI
 struct RecipeView: View {
     var recipe: Recipe
     @EnvironmentObject var viewModel: RecipeViewModel
-    @State private var selectedTask: String = "more"
-    var tasks = ["delete", "more"]
     
     var body: some View {
         ScrollView {
