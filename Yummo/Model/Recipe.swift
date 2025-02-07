@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-// instructionText eklenebilir.
 struct Recipe: Identifiable, Hashable {
     let id = UUID()
     var recipeName: String
@@ -17,7 +16,7 @@ struct Recipe: Identifiable, Hashable {
     var preperationTime: Int16
     var cookingTime: Int16
     var description: String
-    var ingredients: Array<String>
+    var ingredients: [Int : String]
     var instructions: [Int : String]
     
     init(entity: RecipeEntity) {
@@ -26,7 +25,7 @@ struct Recipe: Identifiable, Hashable {
         self.preperationTime = entity.preperationTime
         self.cookingTime = entity.cookingTime
         self.description = entity.recipeDescription ?? ""
-        self.ingredients = entity.ingredients as? [String] ?? []
+        self.ingredients = entity.ingredients as? [Int : String] ?? [:]
         self.instructions = entity.instructions as? [Int : String] ?? [:]
     }
 }

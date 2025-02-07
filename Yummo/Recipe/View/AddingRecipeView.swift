@@ -16,8 +16,10 @@ struct AddingRecipeView: View {
     @State private var selectedPrepTime: Int16 = 5
     @State private var selectedCookTime: Int16 = 20
     @State private var instructionNum = 1
+    @State private var ingredientNum = 1
+    @State private var ingredientNums: Array<Int> = []
     @State private var instructionNums: Array<Int> = []
-    @State private var ingredients: Array<String> = []
+    @State private var ingredients: [Int : String] = [:]
     @State private var instruction: [Int : String] = [:]
     private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
@@ -170,8 +172,12 @@ struct AddingRecipeView: View {
     }
     var ingredientSection: some View {
         Section {
-            ForEach(ingredients.indices, id: \.self) { index in
-                TextField("ingredient", text: $ingredients[index])
+            ForEach(ingredients.sorted(by: <), id: \.key) { key, value in
+                TextField("ingredient", text: Binding(get: {
+                    ingredients[key] ?? ""
+                }, set: { newValue in
+                    ingredients[key] = newValue
+                }))
             }
         } header: {
             HStack() {
@@ -185,7 +191,9 @@ struct AddingRecipeView: View {
                 
                 Button {
                     let newIngredient = ""
-                    ingredients.append(newIngredient)
+                    ingredients[ingredientNum] = newIngredient
+                    ingredientNums.append(ingredientNum)
+                    ingredientNum += 1
                 } label: {
                     Image(systemName: "plus")
                 }
@@ -199,8 +207,8 @@ struct AddingRecipeView: View {
                     Text("\(key)")
                     
                     TextEditor(text: Binding(
-                        get: { instruction[key] ?? "" }, // Return the value for the key, or an empty string if nil
-                        set: { newValue in instruction[key] = newValue } // Update the value for the key
+                        get: { instruction[key] ?? "" },
+                        set: { newValue in instruction[key] = newValue }
                     ))
                 }
             }

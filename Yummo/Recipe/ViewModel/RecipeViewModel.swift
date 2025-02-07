@@ -46,7 +46,7 @@ class RecipeViewModel: ObservableObject {
     // sadece recipeEntity oluşturuyor. Veritabanına kaydetme işlemini save data yapıyor.
     func addRecipeCoreData(recipeName: String, recipeDesc: String,
                            recipePrepTime: Int16, recipeCookingTime: Int16,
-                           recipeServings: Int16, ingredients: [String],
+                           recipeServings: Int16, ingredients: [Int : String],
                            instructions: [Int : String]) {
         
         let newRecipeEntity = RecipeEntity(context: container.viewContext)
@@ -55,7 +55,7 @@ class RecipeViewModel: ObservableObject {
         newRecipeEntity.preperationTime = recipePrepTime
         newRecipeEntity.cookingTime = recipeCookingTime
         newRecipeEntity.servings = recipeServings
-        newRecipeEntity.ingredients = ingredients as NSArray
+        newRecipeEntity.ingredients = ingredients as NSDictionary
         newRecipeEntity.instructions = instructions as NSDictionary
         
         SaveData()

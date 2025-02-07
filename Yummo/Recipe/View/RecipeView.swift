@@ -57,7 +57,6 @@ struct RecipeView: View {
             }
             .padding()
         }
-        
         Spacer()
         
     }
@@ -94,8 +93,19 @@ struct RecipeView: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 12) {
-                ForEach(recipe.ingredients, id: \.self) { ingredient in
-                    Text(ingredient)
+                ForEach(recipe.ingredients.sorted(by: <), id: \.key) {key, ingredient in
+                    HStack(spacing: 6) {
+                        ZStack() {
+                            Circle()
+                                .frame(width: 28, height: 28)
+                                .foregroundStyle(.orange.secondary.opacity(0.82))
+                                
+                            Text("\(key)")
+                                .foregroundStyle(.orange)
+                                .fontWeight(.black)
+                        }
+                        Text(ingredient)
+                    }
                 }
             }
             .padding()
@@ -116,7 +126,7 @@ struct RecipeView: View {
                         ZStack(alignment: .center) {
                             Circle()
                                 .frame(width: 28, height: 28)
-                                .foregroundStyle(Color.orange.secondary.opacity(0.82))
+                                .foregroundStyle(.orange.secondary.opacity(0.82))
                             
                             Text("\(key)")
                                 .foregroundStyle(.orange)
@@ -129,6 +139,7 @@ struct RecipeView: View {
                     }
                 }
             }
+            .padding()
         }
         .padding()
     }
