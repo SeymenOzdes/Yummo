@@ -18,6 +18,8 @@
 		2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */; };
 		2EA055B72C9DA6A30033CBAB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA055B32C9DA6A30033CBAB /* HomeView.swift */; };
 		2EA77F102C172B8400775F57 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA77F0F2C172B8400775F57 /* CardView.swift */; };
+		2EF1B9DC2D635AEC00CC5200 /* TitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1B9DB2D635AEC00CC5200 /* TitleModifier.swift */; };
+		2EF1B9E02D6360E000CC5200 /* PickerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1B9DF2D6360E000CC5200 /* PickerSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
 		2EA055B32C9DA6A30033CBAB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2EA77F0F2C172B8400775F57 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2EF1B9DB2D635AEC00CC5200 /* TitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModifier.swift; sourceTree = "<group>"; };
+		2EF1B9DF2D6360E000CC5200 /* PickerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -98,6 +102,8 @@
 				2E597ABA2BAED5F200C8AEB5 /* Pipe.swift */,
 				2EA77F0F2C172B8400775F57 /* CardView.swift */,
 				2E17C7602C7B91340087246A /* Checkbox.swift */,
+				2EF1B9DB2D635AEC00CC5200 /* TitleModifier.swift */,
+				2EF1B9DF2D6360E000CC5200 /* PickerSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 				2EA77F102C172B8400775F57 /* CardView.swift in Sources */,
 				2E4816642C7F341C00B4465D /* RecipeDataModel.xcdatamodeld in Sources */,
 				2E597ABB2BAED5F200C8AEB5 /* Pipe.swift in Sources */,
+				2EF1B9E02D6360E000CC5200 /* PickerSection.swift in Sources */,
+				2EF1B9DC2D635AEC00CC5200 /* TitleModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

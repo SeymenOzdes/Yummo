@@ -72,12 +72,7 @@ class RecipeViewModel: ObservableObject {
     func deleteRecipe(recipe: RecipeEntity) {
              container.viewContext.delete(recipe)
         
-        do {
-            try container.viewContext.save()
-            fetchRequest()
-        } catch let error {
-            print("Error deleting recipe: \(error.localizedDescription)")
-        }
+        SaveData()
     }
     
     private func setImage(from selection: PhotosPickerItem?) {

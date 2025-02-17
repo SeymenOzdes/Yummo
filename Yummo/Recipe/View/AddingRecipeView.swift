@@ -21,7 +21,7 @@ struct AddingRecipeView: View {
     @State private var instructionNums: Array<Int> = []
     @State private var ingredients: [Int : String] = [:]
     @State private var instruction: [Int : String] = [:]
-    private let times = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    private let times: [Int16] = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
     var body: some View {
         NavigationStack {
@@ -30,11 +30,11 @@ struct AddingRecipeView: View {
                                 
                 imageSection
                 
-                servingSection
+                PickerSection(title: "Number of People", selection: $servings)
                 
-                preperationTimeSection
+                PickerSection(title: "choose preperation time", selection: $selectedPrepTime, times: times)
                 
-                cookingTimeSection
+                PickerSection(title: "choose cooking time", selection: $selectedCookTime, times: times)
                 
                 descriptionSection
                 
@@ -46,7 +46,6 @@ struct AddingRecipeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.showSheet.toggle()
-                        // viewModel.addRecipe(recipe: Recipe(recipeName: recipeName,recipePhoto: viewModel.recipeImage ,servings: servings, preperationTime: selectedPrepTime, cookingTime: selectedCookTime, description: description, ingredients: ingredients, instructions: instructions))
                         
                         viewModel.addRecipeCoreData(
                             recipeName: recipeName,
@@ -79,10 +78,7 @@ struct AddingRecipeView: View {
             TextField("Name", text: $recipeName)
         } header: {
             Text("Title")
-                .textCase(.none)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.black)
+                .titleModifier()
         }
     }
     var imageSection: some View {
@@ -110,64 +106,13 @@ struct AddingRecipeView: View {
             Text("Image")
         }
     }
-    var servingSection: some View {
-        Section {
-            Picker("Number of People", selection: $servings) {
-                ForEach(1..<11, id: \.self) { i in
-                    Text("\(i)")
-                        .tag(Int16(i))
-                }
-            }
-        } header: {
-            Text("Serving")
-                .textCase(.none)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.black)
-        }
-    }
-    var preperationTimeSection: some View {
-        Section {
-            Picker("choose preperation time", selection: $selectedPrepTime) {
-                ForEach(times, id: \.self) { i in
-                    Text("\(i)")
-                        .tag(Int16(i))
-                }
-            }
-        } header: {
-            Text("Prep Time")
-                .textCase(.none)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.black)
-        }
-    }
-    var cookingTimeSection: some View {
-        Section {
-            Picker("choose cooking time", selection: $selectedCookTime) {
-                ForEach(times, id: \.self) { i in
-                    Text("\(i)")
-                        .tag(Int16(i))
-                }
-            }
-        } header: {
-            Text("Cooking time")
-                .textCase(.none)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.black)
-        }
-    }
     var descriptionSection: some View {
         Section {
             TextEditor(text: $description)
                 .frame(height: 120)
         } header: {
             Text("Description")
-                .textCase(.none)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.black)
+                .titleModifier()
         }
     }
     var ingredientSection: some View {
@@ -182,10 +127,7 @@ struct AddingRecipeView: View {
         } header: {
             HStack() {
                 Text("Ingredients")
-                    .textCase(.none)
-                    .font(.title2)
-                    .bold()
-                    .foregroundStyle(.black)
+                    .titleModifier()
                 
                 Spacer()
                 
@@ -215,10 +157,7 @@ struct AddingRecipeView: View {
         } header: {
             HStack {
                 Text("Instructions")
-                    .textCase(.none)
-                    .font(.title2)
-                    .bold()
-                    .foregroundStyle(.black)
+                    .titleModifier()
                 
                 Spacer()
                 

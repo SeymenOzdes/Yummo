@@ -35,7 +35,7 @@ struct RecipeHomeView: View {
                 .safeAreaPadding(.horizontal, 46)
                 .scrollTargetBehavior(.paging)
                 .scrollIndicators(.hidden)
-                .navigationTitle("Recipes")
+                .navigationTitle("My Recipes")
                 .navigationDestination(for: Recipe.self) { recipe in
                     RecipeView(recipe: recipe)
                         .environmentObject(viewModel)
