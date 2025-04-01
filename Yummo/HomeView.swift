@@ -7,20 +7,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var selectedTab = 1
+    
     var body: some View {
-        TabView {
-            RecipeHomeView()
-                .tabItem {
-                    Label("Recipes", systemImage: "book.fill")
-                }
-            ShoppingListView()
-                .tabItem {
-                    Label("List", systemImage: "list.bullet.rectangle.portrait.fill")
-                }
+        ZStack(alignment: .bottom) {
+            TabView (selection: $selectedTab){
+                RecipeHomeView()
+                    .tag(1)
+                    
+                ShoppingListView()
+                    .tag(2)
+            }
+            
+            CustomTabBar(selectedTab: $selectedTab)
+                .padding(.bottom, 12)
         }
     }
-}
-
-#Preview {
-    HomeView()
 }
