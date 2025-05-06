@@ -13,7 +13,7 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Int
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 0) {
             ForEach(tabs) { tab in
                 Button {
                     selectedTab = tab.tag
@@ -50,10 +50,10 @@ struct CustomTabBar: View {
                 .stroke(Color.orange.opacity(0.3), lineWidth: 2)
                 .fill(Color.white)
                 .shadow(color: Color.gray,
-                        radius: 20
+                        radius: 8
                 )
         }
          .padding(.horizontal)
-         .animation(.spring(response: 0.8, dampingFraction: 0.7), value: selectedTab)
+         .animation(.spring(response: 0.35, dampingFraction: 0.65, blendDuration: 0.25), value: selectedTab)
     }
 }
